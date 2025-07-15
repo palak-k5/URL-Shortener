@@ -1,32 +1,40 @@
 import express from 'express';
-import { nanoid } from 'nanoid';
+import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from "./src/config/mongo.config.js"; 
-import { connect } from 'mongoose';
-import urlSchema from "./src/models/shorturl.model.js";
+import connectDB from './src/config/mongo.config.js'; 
 import short_url from './src/routes/shortUrl.route.js';
+import auth_routes from './src/routes/auth.routes.js';
 import { redirectFromShortUrl } from './src/controller/shortUrl.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
-import cors from 'cors';
+import cookieParser from "cookie-parser";
+
 dotenv.config('./.env');
-const app=express();
+
+const app = express();
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // allow Vite dev server
+    origin: "http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true
   })
 );
- app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use('/api/create',short_url);
-app.get('/',(req,res)=>{
-    res.send('Welcome to the URL Shortener API');
-})
+app.use(cookieParser());
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// ✅ Route handlers come BEFORE error handler
+app.use('/api/create', short_url);
+app.use('/api/auth', auth_routes);
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the URL Shortener API');
+});
 
 app.get('/:id', redirectFromShortUrl);
 
+// ✅ Error handler always LAST
 app.use(errorHandler);
 
 const startServer = async () => {
