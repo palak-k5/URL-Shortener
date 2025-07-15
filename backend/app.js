@@ -7,7 +7,7 @@ import auth_routes from './src/routes/auth.routes.js';
 import { redirectFromShortUrl } from './src/controller/shortUrl.controller.js';
 import { errorHandler } from './src/utils/errorHandler.js';
 import cookieParser from "cookie-parser";
-
+import {attachUser} from "./src/utils/attachUser.js"
 dotenv.config('./.env');
 
 const app = express();
@@ -20,7 +20,7 @@ app.use(
   })
 );
 app.use(cookieParser());
-
+app.use(attachUser);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
