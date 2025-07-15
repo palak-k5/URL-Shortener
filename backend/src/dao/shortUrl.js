@@ -8,7 +8,7 @@ export const saveShortUrl=async(shortUrl,longUrl,userId)=>
       });
       if(userId)
       {
-        newUrl.user_id=userId
+        newUrl.user=userId
       }
       await newUrl.save();
     }
@@ -23,4 +23,8 @@ throw AppError.Conflict("Short URL already exists");
 
 export const getShortUrl=async (shortUrl)=>{
     return await urlSchema.findOneAndUpdate({ short_url: shortUrl },{$inc:{clicks:1}})
+}
+
+export const getCustomShortUrl =async(slug)=>{
+  return await urlSchema.findOne({short_url:slug});
 }
