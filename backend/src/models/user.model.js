@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema=new Schema({
+const userSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true
@@ -18,9 +18,7 @@ const userSchema=new Schema({
     avatar:{
         type:String,
         required:false,
-        default:function(){
-            return getGravatarUrl(this.email);
-        },
+    default: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp",
     },
 });
 
@@ -30,7 +28,7 @@ function getGravatarUrl(email)
     .createHash(md5)
     .update(email.trim().toLowerCase())
     .digest('hex');
-    return 'https://www.gravatar.com/avatar/${hash}?d=mp'>;
+  return `https://www.gravatar.com/avatar/${hash}?d=mp`;
 
 }
 const User=mongoose.model("User",userSchema);
