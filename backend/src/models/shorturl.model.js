@@ -16,12 +16,12 @@
             required: true,
             default: 0
         },
-        user    :{
+        user:{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'User',
         
         },
-        visitHistory: [{ timestamp: { type: Number } }]
+        visitHistory: [{ timestamp: { type: Date } }]
     }, {
         timestamps: true
     })

@@ -6,7 +6,7 @@ export const findUserByEmail=async (email)=>{
 
 
 export const findUserById=async (id)=>{
-    return await User.findUserById(id);
+    return await User.findById(id);
 }
 
 export const findUserByEmailByPassword = async (email) => {
