@@ -8,7 +8,7 @@ const HomePage = () => {
       <FireflyBackground />
 
       {/* Container for the content, stacked vertically */}
-      <div className="relative z-10 flex flex-col items-center justify-start w-full pt-24 md:pt-32">
+      <div className="relative z-10 flex flex-col items-center justify-start w-full pt-16 md:pt-20">
         
         {/* Your New Text Block */}
         <div className="text-center text-white mb-10">

@@ -9,15 +9,20 @@ const AuthPage = () => {
  
   return (
 
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-start justify-center overflow-hidden">
       <FireflyBackground />
-
-      {/* <div className="w-full max-w-md bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg z-10">
-        <h1 className="text-3xl font-bold text-center mb-4 ">🔗 URL Shortener</h1><br></br>
-      </div> */}
-      {login ? <LoginForm state={setLogin} /> : <RegisterForm state={setLogin} />}
-
-    // </div>
+      <div className="flex flex-col items-center z-10 pt-16 md:pt-20">
+        <div className="text-center text-white mb-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            The Ultimate URL Shortener
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-gray-300">
+            Create clean, short links in seconds. Simple, fast, and reliable for all your needs.
+          </p>
+        </div>
+        {login ? <LoginForm state={setLogin} /> : <RegisterForm state={setLogin} />}
+      </div>
+    </div>
   );
 };
 
