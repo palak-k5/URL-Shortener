@@ -4,12 +4,25 @@ import FireflyBackground from "../components/FireflyBackground";
 
 const HomePage = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen w-full">
       <FireflyBackground />
 
-      <div className="w-full max-w-md bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg z-10">
-        <h1 className="text-3xl font-bold text-center mb-4">🔗 URL Shortener</h1>
+      {/* Container for the content, stacked vertically */}
+      <div className="relative z-10 flex flex-col items-center justify-start w-full pt-24 md:pt-32">
+        
+        {/* Your New Text Block */}
+        <div className="text-center text-white mb-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+            The Ultimate URL Shortener
+          </h1>
+          <p className="mt-4 max-w-xl text-lg text-gray-300">
+            Create clean, short links in seconds. Simple, fast, and reliable for all your needs.
+          </p>
+        </div>
+
+        {/* Your Existing Form */}
         <UrlForm />
+
       </div>
     </div>
   );

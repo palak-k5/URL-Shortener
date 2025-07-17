@@ -12,10 +12,11 @@ const AuthPage = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <FireflyBackground />
 
-      <div className="w-full max-w-md bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg z-10">
+      {/* <div className="w-full max-w-md bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg z-10">
         <h1 className="text-3xl font-bold text-center mb-4 ">🔗 URL Shortener</h1><br></br>
-{login ? <LoginForm state={setLogin} /> : <RegisterForm state={setLogin} />}
-      </div>
+      </div> */}
+      {login ? <LoginForm state={setLogin} /> : <RegisterForm state={setLogin} />}
+
     // </div>
   );
 };
