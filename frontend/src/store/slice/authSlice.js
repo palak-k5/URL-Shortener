@@ -1,5 +1,5 @@
 
-
+//done till redux setup
 import  {createSlice} from '@reduxjs/toolkit';
 
 const initialState={
