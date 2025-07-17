@@ -48,7 +48,7 @@ const RegisterForm = ({ state }) => {
   }
 
   return (
-    <Card className="w-full">
+    <Card className="w-[450px] h-[400px]">
       <form onSubmit={handleSubmit}>
         <CardHeader className="space-y-1 text-center">
   <CardTitle className="text-2xl font-bold">Create An Account</CardTitle>
@@ -93,11 +93,7 @@ const RegisterForm = ({ state }) => {
             />
           </div>
         </CardContent>
-{error && (
-  <div className="text-sm text-destructive bg-destructive/10 px-4 py-2 rounded-md text-center mx-4">
-    {error}
-  </div>
-)}
+{error}
         <CardFooter className="flex flex-col gap-4">
           <Button className="w-full" type="submit" disabled={loading}>
             {loading ? "Creating..." : "Create Account"}

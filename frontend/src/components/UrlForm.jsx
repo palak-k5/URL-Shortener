@@ -23,8 +23,11 @@ setShortUrl(data.short_url);
 };
 
   return (
-    <div className=" flex items-center justify-center bg-indigo-200">
-      <Card className="w-full max-w-md p-4 shadow-lg ">
+    <div className=" flex items-center justify-center ">
+      <Card className={`
+                    w-full max-w-md p-4 shadow-lg transition-all duration-300 ease-in-out
+                    ${shortUrl ? 'h-70' : 'w-100 h-45'}
+                `}>
         <CardContent className="flex flex-col gap-4">
           <form  className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
@@ -78,7 +81,7 @@ setShortUrl(data.short_url);
     </>
   ) : (
     <>
-      <Copy className="w-4 h-4 mr-2" />
+      <Copy className="w-4 h-4 mr-2 " />
       Copy
     </>
   )}

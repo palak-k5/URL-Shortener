@@ -54,7 +54,7 @@ const LoginForm = ({ state}) => {
 
   return (
     <div >
-      <Card className="w-full max-w-md shadow-md border border-border">
+      <Card className="w-[450px] h-[400px]  max-w-md  border-border rounded-lg border shadow-lg">
         <CardHeader className="space-y-1 text-center">
           <CardTitle className="text-2xl font-bold">Sign In To Your Account
 
