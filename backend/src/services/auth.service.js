@@ -14,10 +14,12 @@ export const registerUser = async (name, email, password) => {
 }
 
 export const loginUser = async (email, password) => {
-    const user = await findUserByEmail(email)
+  const user = await findUserByEmail(email);
 
-    // const isPasswordValid = await user.comparePassword(password)
-    if(!user || !user.password) throw new Error("Invalid Credentials")
-    const token = signToken({id: user._id})
-    return {token,user}
-}
+  if (!user || !user.password || user.password !== password) {
+    throw AppError.Unauthorized("Invalid email or password");
+  }
+
+  const token = signToken({ id: user._id });
+  return { token, user };
+};
