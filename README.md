@@ -10,6 +10,7 @@ A simple and efficient application that allows users to create short, shareable 
 - **QR Code generation:** Automatically create a QR code for each short URL for quick sharing and scanning.
 - **Redirect short URLs:** Seamlessly redirect short links to their original destinations.
 - **Usage analytics:** Track the number of visits, geolocation, and more for each short URL.
+  
 - **JWT Authentication:** Secure API endpoints with JSON Web Tokens.
 - **RESTful API:** Integrate easily with other applications.
 - **Modern front-end:** Built with React, Redux, TanStack Router , and Tailwind CSS.
@@ -109,10 +110,3 @@ A simple and efficient application that allows users to create short, shareable 
 ## Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
