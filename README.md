@@ -26,6 +26,21 @@ A simple and efficient application that allows users to create short, shareable 
 - **State Management:** Redux
 - **UI:** Tailwind CSS
 
+## Frontend Architecture
+
+- **Redux** is used for managing global application state (auth, links, analytics).
+- **TanStack Router** handles client-side routing for a fast, SPA experience.
+- **Tailwind CSS** ensures a responsive and clean UI, making user interactions pleasant and accessible.
+- Components are organized for scalability and maintainability.
+- API communication is implemented with JWT tokens-secured requests .
+
+## Scalability & Modular Design
+
+- **Modular folder structure** for easy feature addition and maintenance.
+- Easily add new features as separate modules/services.
+- Backend is stateless and ready for horizontal scaling.
+- Frontend is component-based and can be split into micro-frontends.
+
 ## Getting Started
 
 ### Installation
@@ -90,21 +105,6 @@ A simple and efficient application that allows users to create short, shareable 
 
 - Edit `.env` for database, server, and JWT settings.
 - Customize base URL, expiration policies, analytics options, and QR code styles as needed.
-
-## Frontend Architecture
-
-- **Redux** is used for managing global application state (auth, links, analytics).
-- **TanStack Router** handles client-side routing for a fast, SPA experience.
-- **Tailwind CSS** ensures a responsive and clean UI, making user interactions pleasant and accessible.
-- Components are organized for scalability and maintainability.
-- API communication is implemented with JWT tokens-secured requests .
-
-## Scalability & Modular Design
-
-- **Modular folder structure** for easy feature addition and maintenance.
-- Easily add new features as separate modules/services.
-- Backend is stateless and ready for horizontal scaling.
-- Frontend is component-based and can be split into micro-frontends.
 
 ## Contributing
 
