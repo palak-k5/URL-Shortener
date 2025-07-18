@@ -14,8 +14,7 @@ export const registerUser = async (name, email, password) => {
 }
 
 export const loginUser = async (email, password) => {
-  const user = await findUserByEmail(email);
-
+const user = await findUserByEmailByPassword(email);
   if (!user || !user.password || user.password !== password) {
     throw AppError.Unauthorized("Invalid email or password");
   }
