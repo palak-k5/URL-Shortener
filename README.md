@@ -1,6 +1,6 @@
 # URL Shortener
 
-A simple and efficient application that allows users to create short, shareable links from long URLs.
+Application that allows users to create short, shareable links from long URLs.
 
 **This project stands out for its clean codebase, maintainable architecture, and seamless integration of modern technologies, ensuring reliability and adaptability for both small and large deployments. The user interface is clean and simple, built using Tailwind CSS for a modern and responsive experience.**
 
