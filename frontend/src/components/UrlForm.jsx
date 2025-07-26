@@ -6,19 +6,23 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
 import { createShortUrl } from '@/api/shortUrl.api';
+import { useSelector } from 'react-redux';
+import { QueryClient } from '@tanstack/react-query';
 
 const UrlForm = () => {
     
 const [url,setUrl]=useState("https://www.google.com");
 const [shortUrl,setShortUrl]=useState(null);
 const [isCopied, setIsCopied] = useState(false);
-
+const [customSlug, setCustomSlug] = useState("");
+const {isAuthenticated} = useSelector((state) => state.auth);
 console.log(url);
 
 const handleSubmit = async(e) => {
   e.preventDefault();
-  const data=await createShortUrl(url);
+  const data=await createShortUrl(url, customSlug);
 setShortUrl(data.short_url);
+QueryClient.invalidateQueries({queryKey: ['userUrls']}); // Invalidate the user URLs query to refresh the list
 //   console.log("Saved and Submitted URL:", data);
 };
 
@@ -26,7 +30,7 @@ setShortUrl(data.short_url);
     <div className=" flex items-center justify-center ">
       <Card className={`
                     w-full max-w-md p-4 shadow-lg transition-all duration-300 ease-in-out
-                    ${shortUrl ? 'h-70' : 'w-100 h-45'}
+                    ${shortUrl ? 'h-90' : 'w-100 h-63 '}
                 `}>
         <CardContent className="flex flex-col gap-4">
           <form  className="flex flex-col gap-4">
@@ -52,8 +56,26 @@ setShortUrl(data.short_url);
     {error}
   </div>
 )} */}
-        {shortUrl && (
-  <div className="mt-6 space-y-2">
+
+
+                {isAuthenticated && (
+          <div className="mt-4">
+            <label htmlFor="customSlug" className="block text-sm font-medium text-gray-700 mb-1">
+              Custom URL (optional)
+            </label>
+            <input
+              type="text"
+              id="customSlug"
+              value={customSlug}
+              onChange={(event) => setCustomSlug(event.target.value)}
+              placeholder="Enter custom slug"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        )}
+
+          {shortUrl && (
+  <div className="mt-4 space-y-2">
     <h2 className="text-lg font-semibold">Your shortened URL:</h2>
     <div className="flex items-center gap-2">
       <Input
