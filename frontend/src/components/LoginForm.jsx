@@ -1,15 +1,15 @@
 // components/login-form.tsx
 
 import { useState } from "react"
-// import { useDispatch, useSelector } from "react-redux"
-// import { useNavigate } from "@tanstack/react-router"
+import { useNavigate } from "@tanstack/react-router"
 import { loginUser } from "../api/user.api"
-// import { login } from "../store/slice/authSlice"
+import { login } from "../store/slice/authSlice"
 
 import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { Button } from "./ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
+import { useDispatch, useSelector } from "react-redux"
 
 // interface LoginFormProps {
 //   state: (v: boolean) => void
@@ -22,18 +22,17 @@ const LoginForm = ({ state}) => {
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
-//   const navigate = useNavigate()
-//   const dispatch = useDispatch()
-//   const auth = useSelector((state) => state.auth)
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const auth = useSelector((state) => state.auth)
   const handleSubmit = async () => {
     setLoading(true)
     setError("")
 
     try {
       const data = await loginUser(password, email)
-    //   dispatch(login(data.user))
-    //   navigate({ to: "/dashboard" })
+      dispatch(login(data.user))
+      navigate({ to: "/dashboard" })
       setLoading(false)
       console.log("Sign in success")
     } catch (error) {
