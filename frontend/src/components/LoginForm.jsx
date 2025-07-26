@@ -11,11 +11,7 @@ import { Button } from "./ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
 import { useDispatch, useSelector } from "react-redux"
 
-// interface LoginFormProps {
-//   state: (v: boolean) => void
-// }
 
-// const LoginForm = ({ state }: LoginFormProps) => {
 const LoginForm = ({ state}) => {
     
   const [email, setEmail] = useState("")
@@ -36,7 +32,7 @@ const LoginForm = ({ state}) => {
       setLoading(false)
       console.log("Sign in success")
     } catch (error) {
-    // 👇 Extract custom message from backend
+    // Extract custom message from backend
     setLoading(false);
     const message =
       error.response && error.response.data && error.response.data.message
@@ -46,7 +42,7 @@ const LoginForm = ({ state}) => {
     // Optional: log it
     console.error("Login error:", message);
       
-    // 👇 Throw the custom message so it can be shown to the user
+    //Throw the custom message so it can be shown to the user
     setError(message);
   }
   }
