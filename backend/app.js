@@ -9,7 +9,7 @@ import { errorHandler } from './src/utils/errorHandler.js';
 import cookieParser from "cookie-parser";
 import {attachUser} from "./src/utils/attachUser.js"
 dotenv.config('./.env');
-
+import user_route from './src/routes/user.route.js';
 const app = express();
 
 app.use(
@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // ✅ Route handlers come BEFORE error handler
 app.use('/api/create', short_url);
 app.use('/api/auth', auth_routes);
-
+app.use('/api/user',user_route);
 app.get('/', (req, res) => {
   res.send('Welcome to the URL Shortener API');
 });
