@@ -3,6 +3,7 @@ import UrlForm from '../components/UrlForm'
 import UserUrls from '../components/UserUrl'
 import Navbar from '../components/Navbar' // Import your Navbar component
 import React from 'react'
+import Footer from '@/components/Footer'
 
 const DashBoardPage = () => {
   return (
@@ -17,6 +18,7 @@ const DashBoardPage = () => {
         <UrlForm />
         <UserUrls />
       </div>
+
     </div>
   )
 }
