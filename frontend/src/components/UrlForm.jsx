@@ -29,9 +29,9 @@ QueryClient.invalidateQueries({queryKey: ['userUrls']}); // Invalidate the user 
   return (
     <div className=" flex items-center justify-center ">
       <Card className={`
-                    w-full max-w-md p-4 shadow-lg transition-all duration-300 ease-in-out
-                    ${shortUrl ? 'h-90' : 'w-100 h-63 '}
-                `}>
+  w-full max-w-xl px-8 py-6 shadow-xl bg-white text-black rounded-xl transition-all duration-300 ease-in-out
+
+`}>
         <CardContent className="flex flex-col gap-4">
           <form  className="flex flex-col gap-4">
             <div className="flex flex-col gap-1">
