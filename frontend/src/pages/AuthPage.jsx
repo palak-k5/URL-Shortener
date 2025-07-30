@@ -31,7 +31,6 @@ const AuthPage = () => {
         {mode === "register" ? <RegisterForm /> : <LoginForm />}
         <Features/>
       </div>
-              <Footer/>
 
     </div>
   );
