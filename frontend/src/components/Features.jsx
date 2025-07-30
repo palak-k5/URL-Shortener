@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from './ui/button'
+import { motion } from 'framer-motion'
 
 const Features = () => {
   return (
@@ -35,13 +36,22 @@ const Features = () => {
 
         </div>
 
-        {/* Unlock section */}
-        <div className="text-xl text-white font-semibold pt-4">Unlock all features</div>
+<motion.div
+  className="text-center text-white font-semibold text-base md:text-lg px-4"
+>
+  {["All", "features", "are", "just", "one", "step", "away", "—", "join", "us", "or", "sign", "in!"].map((word, i) => (
+    <motion.span
+      key={i}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: i * 0.09 }}
+      className="inline-block mr-1 text-amber-300"
+    >
+      {word}
+    </motion.span>
+  ))}
+</motion.div>
 
-        <div className="flex gap-3 flex-wrap justify-center">
-          <Button className="bg-amber-50 text-cyan-950">Login</Button>
-          <Button className="bg-amber-50 text-cyan-950">Register</Button>
-        </div>
 
       </div>
     </div>
