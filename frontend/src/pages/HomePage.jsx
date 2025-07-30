@@ -1,6 +1,8 @@
 import React from "react";
 import UrlForm from "../components/UrlForm";
 import FireflyBackground from "../components/FireflyBackground";
+import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 
 const HomePage = () => {
   return (
@@ -8,7 +10,7 @@ const HomePage = () => {
       <FireflyBackground />
 
       {/* Container for the content, stacked vertically */}
-      <div className="relative z-10 flex flex-col items-center justify-start w-full pt-16 md:pt-20">
+      <div className="relative z-10 flex flex-col items-center justify-start w-full pt-16 md:pt-15">
         
         {/* Your New Text Block */}
         <div className="text-center text-white mb-10">
@@ -20,8 +22,9 @@ const HomePage = () => {
           </p>
         </div>
 
-        {/* Your Existing Form */}
+        
         <UrlForm />
+        <Features/>
 
       </div>
     </div>
