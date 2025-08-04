@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getAllUserUrls } from '../api/user.api'
-
+import QRCodeGenerator from "./QRCodeGenerator";
+import QRCodeModal from './QRCodeModal';
 const UserUrl = () => {
   const { data: urls, isLoading, isError, error } = useQuery({
     queryKey: ['userUrls'],
@@ -9,6 +10,7 @@ const UserUrl = () => {
     refetchInterval: 30000, // Refetch every 30 seconds to update click counts
     staleTime: 0, // Consider data stale immediately so it refetches when invalidated
   })
+  const [qrUrl, setQrUrl] = useState(null);
   const [copiedId, setCopiedId] = useState(null)
   const handleCopy = (url, id) => {
     navigator.clipboard.writeText(url)
@@ -121,11 +123,19 @@ const UserUrl = () => {
                       </>
                     )}
                   </button>
+                  <button
+    onClick={() => setQrUrl(`http://localhost:3000/${url.short_url}`)}
+    className="text-xs text-indigo-600 hover:underline"
+  >
+    Show QR
+  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        {qrUrl && <QRCodeModal url={qrUrl} onClose={() => setQrUrl(null)} />}
+
       </div>
     </div>
   )
